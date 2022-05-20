@@ -1,0 +1,79 @@
+<!DOCTYPEhtml>
+<html>
+    <head>
+        <metacharset="utf-8">
+        <metaname="viewport" content="width=device-width">
+        <title>JS Timing Events</title>
+        <link href="stopwatch.css" rel="stylesheet"type="text/css"/>
+        </head>
+        <body>
+           
+            <div id="container">
+                <h1>StopWatch</h1>
+                <div class="time" id="time">
+                   
+                    <span class="digit" id="min">00</span>
+                    <span class="text">:</span>
+                    <span class="digit" id="sec">00</span>
+                   
+              
+            </div>
+            <div id="btn_container">
+                <button id="start" onclick="start()">Start</button>
+                <button id="stop" onclick="stop()">Stop</button>
+                <button id="reset" onclick="reset()">Reset</button>
+
+
+            </div>
+        
+           
+        </div>
+            <script>
+         
+          var min=0;
+          var sec=0;
+
+        
+           var timer=false;
+           function start(){
+               timer=true;
+               stopwatch();
+
+           }
+           function stop(){
+               timer=false;
+           }
+        function reset(){
+            timer=false;
+          
+            min=0;
+            sec=0;
+           
+            document.getElementById("min").innerHTML="00";
+            document.getElementById("sec").innerHTML="00";
+            
+        
+            }
+        
+        function stopwatch(){
+            if(timer==true){
+                setTimeout("stopwatch()",10);
+                sec=sec+1;
+                document.getElementById("sec").innerHTML=sec;
+            }
+            if(sec==60)
+            {
+                min=min+1;
+                document.getElementById("min").innerHTML=min;
+                sec=0;
+            }
+          
+         
+            
+
+        }
+  
+                </script>
+                </body>
+                </html>
+              
